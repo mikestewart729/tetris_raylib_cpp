@@ -12,7 +12,7 @@ int main()
     Grid grid { Grid() };
     grid.Print();
 
-    LBlock block = LBlock();
+    ZBlock block = ZBlock();
 
     while (!WindowShouldClose())
     {
