@@ -19,8 +19,6 @@ private:
     int cell_size;
     int vertical_offset;
     std::vector<Color> colors;
-
-    std::vector<Color> GetCellColors();
 };
 
 #endif
