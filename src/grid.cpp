@@ -10,7 +10,8 @@ Grid::Grid()
     cell_size = 15;
     // needed to make the grid and boxes appear within the window on my machine
     // It is unclear why (0, 0) is not the upper left corner of the window
-    vertical_offset = 300; 
+    vertical_offset = 315;
+    horizontal_offset = 5; 
     Initialize();
     colors = GetCellColors();
 }
@@ -46,7 +47,7 @@ void Grid::Draw()
         {
             int cell_value = grid[row][col];
             DrawRectangle(
-                col * cell_size + 1, 
+                col * cell_size + 1 + horizontal_offset, 
                 row * cell_size + 1 + vertical_offset, 
                 cell_size - 1, 
                 cell_size - 1, 

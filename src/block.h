@@ -27,6 +27,7 @@ private:
     int col_offset;
     // Needed due to weird way screen is rendering on my computer
     int vertical_offset;
+    int horizontal_offset;
 };
 
 #endif

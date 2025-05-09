@@ -24,6 +24,7 @@ private:
     int num_cols;
     int cell_size;
     int vertical_offset;
+    int horizontal_offset;
     std::vector<Color> colors;
 };
 

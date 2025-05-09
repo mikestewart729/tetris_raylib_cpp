@@ -8,7 +8,8 @@ Block::Block()
     row_offset = 0;
     col_offset = 0;
     // Needed for the same reason as given in grid.cpp. Very unclear why.
-    vertical_offset = 300;
+    vertical_offset = 315;
+    horizontal_offset = 5;
 }
 
 void Block::Draw()
@@ -17,7 +18,7 @@ void Block::Draw()
     for (Position tile : tiles)
     {
         DrawRectangle(
-            tile.col * cell_size + 1,
+            tile.col * cell_size + 1 + horizontal_offset,
             tile.row * cell_size + 1 + vertical_offset,
             cell_size - 1,
             cell_size - 1,
