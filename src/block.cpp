@@ -5,13 +5,15 @@ Block::Block()
     cell_size = 15;
     rotation_state = 0;
     colors = GetCellColors();
+    row_offset = 0;
+    col_offset = 0;
     // Needed for the same reason as given in grid.cpp. Very unclear why.
     vertical_offset = 300;
 }
 
 void Block::Draw()
 {
-    std::vector<Position> tiles { cells[rotation_state] };
+    std::vector<Position> tiles { GetCellPositions() };
     for (Position tile : tiles)
     {
         DrawRectangle(
@@ -22,4 +24,27 @@ void Block::Draw()
             colors[id]
         );
     }
+}
+
+void Block::Move(int rows, int cols)
+{
+    row_offset += rows;
+    col_offset += cols;
+}
+
+std::vector<Position> Block::GetCellPositions()
+{
+    std::vector<Position> tiles { cells[rotation_state] };
+    std::vector<Position> moved_tiles;
+    for (Position tile : tiles) 
+    {
+        Position new_position { 
+            Position(
+                tile.row + row_offset, tile.col + col_offset
+            ) 
+        };
+        moved_tiles.push_back(new_position);
+    }
+    
+    return moved_tiles;
 }
