@@ -41,20 +41,17 @@ void Game::HandleInput()
     switch (key_pressed)
     {
     case KEY_LEFT:
-    {
         MoveBlockLeft();
         break;
-    }
     case KEY_RIGHT:
-    {
         MoveBlockRight();
         break;
-    }
     case KEY_DOWN:
-    {
         MoveBlockDown();
         break;
-    }
+    case KEY_UP:
+        RotateBlock();
+        break;
     }
 }
 
@@ -96,4 +93,13 @@ bool Game::IsBlockOutside()
         }
     }
     return false;
+}
+
+void Game::RotateBlock()
+{
+    current_block.Rotate();
+    if (IsBlockOutside())
+    {
+        current_block.UndoRotation();
+    }
 }
