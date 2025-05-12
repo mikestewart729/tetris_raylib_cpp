@@ -4,6 +4,7 @@
 
 #include <cstdlib>
 #include <chrono>
+#include <iostream>
 
 double last_update_time { 0.0 };
 
@@ -43,6 +44,17 @@ int main()
 
         DrawTextEx(font, "Score", {175, 315}, 18, 2, WHITE);
         DrawRectangleRounded({165, 335, 75, 30}, 0.3, 6, light_blue);
+        char score_text[10];
+        snprintf(score_text, sizeof(score_text), "%d", game.score);
+        Vector2 text_size { MeasureTextEx(font, score_text, 18, 2) };
+        DrawTextEx(
+            font,
+            score_text, 
+            {165 + (75 - text_size.x) / 2.25f, 335 + (30 - text_size.y) / 5},
+            18,
+            2, 
+            WHITE
+        );
 
         DrawTextEx(font, "Next", {183, 395}, 18, 2, WHITE);
         DrawRectangleRounded({165, 415, 75, 80}, 0.3, 6, light_blue);
