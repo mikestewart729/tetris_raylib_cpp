@@ -35,6 +35,7 @@ void Game::Draw()
 {
     grid.Draw();
     current_block.Draw();
+    next_block.Draw(125, 125);
 }
 
 void Game::HandleInput()

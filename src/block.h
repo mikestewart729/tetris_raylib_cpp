@@ -11,7 +11,7 @@ class Block
 {
 public:
     Block();
-    void Draw();
+    void Draw(int offset_x = 1, int offset_y = 1);
     void Move(int rows, int cols);
     std::vector<Position> GetCellPositions();
     void Rotate();
